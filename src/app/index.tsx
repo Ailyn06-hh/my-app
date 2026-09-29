@@ -1,26 +1,24 @@
-import { CardItem } from '@/types/CardItem';
 import { useRouter } from 'expo-router';
-import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
-import { Card } from '../components/ui/card';
+import { useState } from 'react';
+import { Button, StyleSheet, TextInput, View } from 'react-native';
 import { login } from '../utils/auth';
-import { saveToken } from '../utils/tokenStorage';
+import { saveToken } from '../utils/TokenStorage';
 
 export default function LoginScreen(){
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const router = userRouter();
+    const router = useRouter();
 
     const handleLogin = async () => {
         try{
             const token = await login(username, password);
             await saveToken(token);
             router.replace('/');
+        } catch(error) {
+    console.error('Error al iniciar sesión:', error);
         }
-    }
-}
-
-return (
+    };
+    return (
   <View style={styles.container}>
     <TextInput
       placeholder='Usuario'
@@ -37,9 +35,11 @@ return (
       style={styles.input}
     />
     <Button title="Iniciar Sesión" onPress={handleLogin} />
-    
   </View>
-);
+  
+);}
+
+
 
 const styles = StyleSheet.create({
 
