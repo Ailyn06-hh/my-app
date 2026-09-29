@@ -66,7 +66,11 @@ export function AnimatedIcon() {
       </Animated.View>
 
       <Animated.View style={styles.imageContainer} entering={logoKeyframe.duration(DURATION)}>
+<<<<<<< HEAD
         <Image style={styles.image} source={require('@/assets/images/image1.png')} />
+=======
+        <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} />
+>>>>>>> upstream/main
       </Animated.View>
     </View>
   );
