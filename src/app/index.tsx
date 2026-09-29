@@ -78,8 +78,9 @@ export default function HomeScreen() {
       contentContainerStyle={styles.listContent}
       showsVerticalScrollIndicator={false}
       refreshing={refreshing}
-      onRefresh={onRefresh}{
-        ...<Text style={styles.message}>No hay targetas disponibles</Text>
+      onRefresh={onRefresh}
+      ListEmptyComponent={
+        <Text style={styles.message}>No hay tarjetas disponibles</Text>
       }
       renderItem={({ item }: { item: CardItem }) => (
         <Card
